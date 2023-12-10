@@ -17,9 +17,11 @@ import { RightToggle } from "./rightToggle"
 import { AvatarPic } from "./avatar"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { DeleteMyAccount } from "@/tools/alertDiaglog"
   
   export function MenubarDrop() {
     return (
+      <div className="hidden md:block ">
       <Menubar>
 
 
@@ -28,7 +30,7 @@ import { Button } from "@/components/ui/button"
         <MenubarMenu>
           <MenubarTrigger>
 
-                <p>Account</p>
+                <p className="">Account</p>
             
 
           </MenubarTrigger>
@@ -56,7 +58,7 @@ import { Button } from "@/components/ui/button"
             </MenubarSub>
             <MenubarSeparator />
             <MenubarItem>
-              <Button>Delete My Account </Button>
+              <DeleteMyAccount/>
             </MenubarItem>
           </MenubarContent>
         </MenubarMenu>
@@ -64,6 +66,7 @@ import { Button } from "@/components/ui/button"
         
 
       </Menubar>
+      </div>
     )
   }
   

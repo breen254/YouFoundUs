@@ -1,3 +1,4 @@
+"use client"
 import { Card, CardFooter } from '@/components/ui/card'
 import React from 'react'
 import { Button } from "@/components/ui/button"
@@ -6,10 +7,17 @@ import { Label } from "@/components/ui/label"
 import Image from 'next/image'
 import profimage from "@/public/images/profile.jpg"
 
+import { motion } from "framer-motion"
+import { DeleteMyAccount } from '@/tools/alertDiaglog'
 const page = () => {
   return (
-    <div className='flex'>
-        <section className='w-[50%]'>
+    <motion.div 
+    initial={{opacity:0, x:20}}
+    animate={{opacity:1, x:0}}
+    exit={{opacity:0, x:20}}
+    transition={{ duration: 0.9, ease: "easeIn" }}
+    className='flex flex-col md:flex-row'>
+        <section className='w-full md:w-1/2'>
             <Card className='p-3 '>
             <div className="space-y-2">
                 <h4 className="font-medium leading-none ">Edit profile</h4>
@@ -48,17 +56,18 @@ const page = () => {
                 <Button variant="outline">Cancel</Button>
                 <Button>Deploy</Button>
             </CardFooter>
+            <DeleteMyAccount/>
         </Card>
         </section>
 
 
 
-        <section className='w-[50%] flex flex-col items-end'>
-            <Card className="w-[350px] h-[350px] rounded-full">
+        <section className='w-full md:w-1/2 flex flex-col items-center justify-center'>
+            <Card className="w-[150px] h-[150px] rounded-full">
                     <Image
                     src={profimage}
-                    width={300}
-                    height={300}
+                    width={150}
+                    height={150}
                     alt="Picture"
                     className="object-cover w-full h-full rounded-full"
                 />
@@ -73,7 +82,7 @@ const page = () => {
             </Card>
 
         </section>
-    </div>
+    </motion.div>
   )
 }
 

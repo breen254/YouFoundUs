@@ -2,7 +2,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-
 import { ThemeProvider } from "@/components/theme-provider"
 import TopBar from '@/components/navbar/nav'
 import { AccordionLeftbar } from '@/tools/accordance'
@@ -30,19 +29,20 @@ export default function RootLayout({
             defaultTheme="system"
           >
             <TopBar /> 
-            <div className=" flex h-screen">
-            <section className='left-0 fixed w-[20%] px-2 h-[100vh] border-r'>
+            <div className="flex h-screen ">
+            <section className='hidden md:block left-0 fixed w-[20%] px-2 h-[100vh] border-r  mt-[64px]'>
               <Card className='p-2 mt-2 border-none shadow-none'>
-              <AccordionLeftbar/>
+                <AccordionLeftbar/>
               </Card>
             </section>
-            <section className='w-full ml-[21%] p-3'>
+            <section className='w-full md:ml-[20%] mt-[64px]'>
 
-              <Card className="h-screen border-none shadow-none p-2">
-              {children}
-        
-                
-                </Card>
+
+                <Card className="border-none h-[calc(100vh-64px)] shadow-none p-1">
+                  
+                {children}
+                  </Card>
+
             </section>
       
 
